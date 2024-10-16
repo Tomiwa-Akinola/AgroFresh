@@ -7,11 +7,13 @@
 
 		<script src="https://cdn.tailwindcss.com"></script>
 		
-		<title>AgroFresh</title>
+		<title>{% block title %}{% endblock %} | AgroFresh</title>
 	</head>
 
 	<body>
 		<div class="px-6 py-6">
+			{% block content %}
+			{% endblock %}
 		</div>
 	</body>
 </html>
