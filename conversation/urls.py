@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from django import path
+from django.urls import path
 
 from . import views
 
