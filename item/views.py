@@ -3,6 +3,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 
+from .forms import NewItemForm
 from .models import Item
 
 def detail(request, pk):

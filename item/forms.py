@@ -7,4 +7,10 @@ from .models import Item
 class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ('category', 'name', 'desceiption', 'price', 'image',)
+        fields = ('category', 'name', 'description', 'price', 'image',)
+
+        widgets = {
+                'category': forms.Select(attrs={
+                    'class': 'w-full py-4 px-6 rounded-xl border'
+                        })
+                }
