@@ -47,10 +47,8 @@ def edit(request, pk):
             form.save()
 
             return redirect('item:detail', pk=item.id)
-        else:
-            form = EditItemForm(instance=item)
-
-    form = EditItemForm()
+    else:
+        form = EditItemForm(instance=item)
 
     return render(request, 'item/form.html', {
         'form': form,
