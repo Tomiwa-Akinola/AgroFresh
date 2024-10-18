@@ -19,21 +19,23 @@ def new_conversation(request, item_pk):
         pass #redirect to conversation
 
     if request.method == 'POST':
-        form = ConversationMessageform(request.POST)
+        form = ConversationMessageForm(request.POST)
 
         if form.is_valid():
-            converation = Conversation.objects.create(item=item)
+            conversation = Conversation.objects.create(item=item)
             conversation.members.add(request.user)
             conversation.members.add(item.created_by)
             conversation.save()
 
             conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.created_by = request.user
             conversation_message.save()
 
             return redirect('item:detail', pk=item_pk)
-        else:
-            form = ConversationMessageForm()
+    else:
+        form = ConversationMessageForm()
 
-        return render(request, 'conversation/new.html', {
-            'form': form
-            })
+    return render(request, 'conversation/new.html', {
+        'form': form
+        })
