@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
 from django.shortcuts import render, get_object_or_404, redirect
+
 from item.models import Item
+
 from .forms import ConversationMessageForm
 from .models import Conversation
 
@@ -16,7 +18,7 @@ def new_conversation(request, item_pk):
     if conversations:
         pass #redirect to conversation
 
-    of request.method == 'POST':
+    if request.method == 'POST':
         form = ConversationMessageform(request.POST)
 
         if form.is_valid():
