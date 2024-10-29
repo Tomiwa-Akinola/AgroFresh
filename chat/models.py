@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.modelsi import User  #for authentication
 
 from item.models import Item
 
+#defining the Chat model
 class Chat(models.Model):
     item = models.ForeignKey(Item, related_name='chats', on_delete=models.CASCADE)
     members = models.ManyToManyField(User, related_name='chats')
@@ -14,7 +15,7 @@ class Chat(models.Model):
     class Meta:
         ordering = ('-modified_at',)
 
-
+#defining the ChatMessage model
 class ChatMessage(models.Model):
     chat = models.ForeignKey(Chat, related_name='messages', on_delete=models.CASCADE)
     content = models.TextField()

@@ -9,6 +9,7 @@ from .models import Chat
 
 @login_required
 def new_chat(request, item_pk):
+    #fetch item based on provided primary key
     food = get_object_or_404(Item, pk=item_pk)
 
     if item.created_by == request.user:

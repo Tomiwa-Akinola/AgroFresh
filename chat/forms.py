@@ -6,9 +6,9 @@ from .models import ChatMessage
 class ChatMessageForm(forms.ModelForm):
     class Meta:
         model = ChatMessage
-        fields = ('content',)
+        fields = ('content',)  #specifying field to include in the form
         widgets = {
-                'content': forms.Textarea(attrs={
-                    'class': 'w-full py-4 px-6 rounded-xl border'
+                'content': forms.Textarea(attrs={   #customizing widget for the 'content' field
+                    'class': 'w-full py-4 px-6 rounded-xl border'   #css classes for styling
                     })
                 }
