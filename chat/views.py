@@ -10,7 +10,7 @@ from .models import Chat
 @login_required
 def new_chat(request, item_pk):
     #fetch item based on provided primary key
-    food = get_object_or_404(Item, pk=item_pk)
+    item = get_object_or_404(Item, pk=item_pk)
 
     if item.created_by == request.user:
         return redirect('dashboard:index')
@@ -34,7 +34,7 @@ def new_chat(request, item_pk):
             chat_message.created_by = request.user
             chat_message.save()
 
-            return redirect('food:detail', pk=item_pk)
+            return redirect('item:detail', pk=item_pk)
     else:
         form = ChatMessageForm()
 
