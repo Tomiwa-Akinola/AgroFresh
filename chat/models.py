@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from django.db import models
-from django.contrib.auth.modelsi import User  #for authentication
+from django.contrib.auth.models import User  #for authentication
 
 from item.models import Item
 
