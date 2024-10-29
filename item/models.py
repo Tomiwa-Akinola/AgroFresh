@@ -3,6 +3,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+#model representing a category of items
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
@@ -13,6 +14,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+#model representing an item
 class Item(models.Model):
     category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)

@@ -4,8 +4,10 @@ from django import forms
 
 from .models import Item
 
+#css class for styling imput fields
 INPUT_CLASSES =  'w-full py-4 px-6 rounded-xl border'
 
+#form for creating a new item
 class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
@@ -29,6 +31,7 @@ class NewItemForm(forms.ModelForm):
                     })
                 }
 
+#form for editing an existing item
 class EditItemForm(forms.ModelForm):
     class Meta:
         model = Item

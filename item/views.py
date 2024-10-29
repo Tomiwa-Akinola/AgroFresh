@@ -8,8 +8,10 @@ from .forms import NewItemForm, EditItemForm
 from .models import Item, Category
 
 def items(request):
+    #get search query and category filter from GET parameters
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)
+
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
